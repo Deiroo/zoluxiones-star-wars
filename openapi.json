@@ -1,0 +1,167 @@
+{
+  "openapi": "3.0.0",
+  "components": {
+    "schemas": {
+      "SpeciesGet": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "nombre"
+          ],
+          "properties": {
+            "clasificacion": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            },
+            "estatura_promedio": {
+              "type": "integer"
+            },
+            "tiempo_de_vida": {
+              "type": "string"
+            },
+            "color_ojos": {
+              "type": "string"
+            },
+            "color_cabello": {
+              "type": "string"
+            },
+            "color_piel": {
+              "type": "integer"
+            },
+            "lenguaje": {
+              "type": "string"
+            },
+            "planeta": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "SpeciesPOST": {
+        "type": "array",
+        "items": {
+          "type": "object",
+          "required": [
+            "nombre"
+          ],
+          "properties": {
+            "clasificacion": {
+              "type": "string"
+            },
+            "tipo": {
+              "type": "string"
+            },
+            "estatura_promedio": {
+              "type": "integer"
+            },
+            "tiempo_de_vida": {
+              "type": "string"
+            },
+            "color_ojos": {
+              "type": "string"
+            },
+            "color_cabello": {
+              "type": "string"
+            },
+            "color_piel": {
+              "type": "integer"
+            },
+            "lenguaje": {
+              "type": "string"
+            },
+            "planeta": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "BadRequestResponse": {
+        "type": "object",
+        "properties": {
+          "message": {
+            "type": "string"
+          },
+          "result": {
+            "type": "object"
+          }
+        },
+        "example": {
+          "message": "Error inesperado!",
+          "result": null
+        }
+      }
+    }
+  },
+  "info": {
+    "title": "My API",
+    "description": "This is my API",
+    "version": "1"
+  },
+  "paths": {
+    "api/species": {
+      "get": {
+        "summary": "Obtener especies",
+        "responses": {
+          "200": {
+            "description": "Especies obtenidas satisfactoriamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeciesGet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No se pudieron obtener las especies",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "summary": "Registrar una nueva especie",
+        "requestBody": {
+          "required": true,
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/SpeciesPOST"
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Especie registrada satisfactoriamente",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/SpeciesGet"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "No se pudo registrar la especie",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/BadRequestResponse"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

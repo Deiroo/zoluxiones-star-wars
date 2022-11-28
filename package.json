@@ -1,0 +1,19 @@
+{
+  "devDependencies": {
+    "api-html": "^1.1.17",
+    "lambda-tester": "^4.0.1",
+    "serverless-aws-documentation": "^1.1.0",
+    "serverless-offline": "^11.2.3",
+    "serverless-openapi": "^1.1.2",
+    "serverless-openapi-documentation": "^0.4.0"
+  },
+  "dependencies": {
+    "joi": "^17.7.0",
+    "knex": "^2.3.0",
+    "mysql2": "^3.0.0-rc.1",
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "test": "jest"
+  }
+}

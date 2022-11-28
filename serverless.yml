@@ -1,0 +1,93 @@
+service: zoluxionesstarwarsapi
+
+frameworkVersion: '3'
+
+provider:
+  name: aws
+  runtime: nodejs12.x
+  stage: dev
+  region: us-east-1
+  timeout: 30
+
+plugins:
+ - serverless-offline
+ - serverless-openapi
+
+functions:
+  list:
+    handler: handlers/species.list
+    events:
+    - httpApi:
+        path: /api/species
+        method: get
+  insert:
+    handler: handlers/species.save
+    events:
+    - httpApi:
+        path: /api/species
+        method: post
+
+	
+custom:
+  documentation:
+    version: '1'
+    title: 'My API'
+    description: 'This is my API'
+    models: 
+      - name: "SpeciesGet"
+        description: "GET de especies"
+        contentType: "application/json"
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - nombre
+            properties:
+              clasificacion:
+                type: string
+              tipo:
+                type: string
+              estatura_promedio:
+                type: integer
+              tiempo_de_vida:
+                type: string
+              color_ojos:
+                type: string
+              color_cabello:
+                type: string
+              color_piel:
+                type: integer
+              lenguaje:
+                type: string
+              planeta:
+                type: string
+      - name: "SpeciesPOST"
+        description: "POST de especies"
+        contentType: "application/json"
+        schema:
+          type: array
+          items:
+            type: object
+            required:
+              - nombre
+            properties:
+              clasificacion:
+                type: string
+              tipo:
+                type: string
+              estatura_promedio:
+                type: integer
+              tiempo_de_vida:
+                type: string
+              color_ojos:
+                type: string
+              color_cabello:
+                type: string
+              color_piel:
+                type: integer
+              lenguaje:
+                type: string
+              planeta:
+                type: string
+    
