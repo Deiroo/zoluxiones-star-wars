@@ -1,6 +1,7 @@
 {
   "devDependencies": {
     "api-html": "^1.1.17",
+    "jest": "^29.3.1",
     "lambda-tester": "^4.0.1",
     "serverless-aws-documentation": "^1.1.0",
     "serverless-offline": "^11.2.3",

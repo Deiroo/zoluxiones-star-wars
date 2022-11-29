@@ -8,7 +8,6 @@ let speciesService = {
     getAll: async function () {
         try {
             const response = await fetch('https://swapi.py4e.com/api/species/');
-            console.log("aquí", JSON.stringify(response));
             if (response.ok) {
                 const jsonResponse = await response.json();
                 let { results } = jsonResponse;

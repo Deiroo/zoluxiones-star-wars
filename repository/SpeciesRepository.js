@@ -4,7 +4,6 @@ const knex = require('../db/connection');
     //Obtiene todas las especies de la base de datos
     async getAll() {
         try {
-            console.log("Llegó Repo");
             const queryBuilder = knex
                 .select('nombre', 'clasificacion', 'tipo', 'estatura_promedio', 'tiempo_de_vida', 'color_ojos', 'color_cabello', 'color_piel', 'lenguaje', 'planeta')
                 .from('especies');

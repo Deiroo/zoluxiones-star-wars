@@ -25,6 +25,7 @@ module.exports.list = async (event) => {
 
 module.exports.save = async (event) => {
   try {
+    console.log(event);
     const { body } = event;
     console.log(JSON.stringify(event))
     const jsonData = JSON.parse(body);
